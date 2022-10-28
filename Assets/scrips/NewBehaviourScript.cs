@@ -8,6 +8,8 @@ public class NewBehaviourScript : MonoBehaviour
     public float fuerzasalto;
     public float saltosmaximos;
     public LayerMask capaSuelo;
+    public AudioManager audioManager;
+    public AudioClip sonidoSalto;
 
 
     private Rigidbody2D rigidbody;
@@ -47,6 +49,7 @@ public class NewBehaviourScript : MonoBehaviour
             saltosRestantes --;
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0f);
             rigidbody.AddForce(Vector2.up * fuerzasalto, ForceMode2D.Impulse);
+            audioManager.ReproducirSonido(sonidoSalto);
         }
     }
     void ProcesarMovimiento()
